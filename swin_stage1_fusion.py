@@ -9,7 +9,7 @@ Usage:
     ...
     python swin_stage1_fusion.py --combo_idx 49
 
-Combos: 0 to 49 (50 random combinations sampled from 192 total)
+Combos: 0 to 49 (50 random combinations sampled from total combinations)
 """
 
 import sys
@@ -35,8 +35,8 @@ from utils       import set_seed, train_one_epoch, predict
 # ============================================================
 # PATHS  —  update to match your cluster
 # ============================================================
-DATA_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/dg_dataset")
-TDA_ROOT  = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG")
+DATA_ROOT = Path("breast_mri/domain_generalization/DG/dg_dataset")
+TDA_ROOT  = Path("breast_mri/domain_generalization/DG")
 
 TRAIN_IMG_ROOT = DATA_ROOT / "train"
 VAL_IMG_ROOT   = DATA_ROOT / "val"
@@ -44,9 +44,9 @@ VAL_IMG_ROOT   = DATA_ROOT / "val"
 TRAIN_TDA_CSV = TDA_ROOT / "dg_betti_train_2_class.csv"
 VAL_TDA_CSV   = TDA_ROOT / "dg_betti_val_2_class.csv"
 
-PRETRAINED_WEIGHTS = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/pretrained_weights/swin_unetr_pretrained.pt")
+PRETRAINED_WEIGHTS = Path("breast_mri/domain_generalization/DG/pretrained_weights/swin_unetr_pretrained.pt")
 
-OUT_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage1")
+OUT_ROOT = Path("breast_mri/domain_generalization/DG/results/stage1")
 
 # ============================================================
 # FIXED SETTINGS
@@ -61,10 +61,10 @@ TDA_DIM     = 450
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ============================================================
-# SEARCH SPACE  →  192 total combinations
+# SEARCH SPACE  →  total combinations
 # ============================================================
 SEARCH_SPACE = {
-    "lr":           [1e-5, 5e-5, 1e-4, 5e-4],
+    "lr":           [1e-5, 5e-5, 1e-4, 5e-4, 1e-3, 1e-2],
     "weight_decay": [1e-4, 1e-3, 1e-2],
     "dropout":      [0.2, 0.3, 0.4, 0.5],
     "batch_size":   [4, 8, 16, 32],
