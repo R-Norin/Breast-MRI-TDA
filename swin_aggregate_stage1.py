@@ -11,7 +11,7 @@ import json
 import glob
 from pathlib import Path
 
-STAGE1_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage1")
+STAGE1_OUT = Path("breast_mri/domain_generalization/DG/results/stage1")
 
 MODELS = [
     "r3d18_imgonly",
