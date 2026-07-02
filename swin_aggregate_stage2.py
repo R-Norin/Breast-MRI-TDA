@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-STAGE2_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage2")
+STAGE2_OUT = Path("breast_mri/domain_generalization/DG/results/stage2")
 
 MODELS = [
     "r3d18_imgonly",
@@ -26,7 +26,7 @@ MODELS = [
     "swin_fusion",
 ]
 
-SEEDS   = [22, 32, 42, 52, 62]
+SEEDS   = [32, 42, 52, 62]
 METRICS = ["AUC", "Accuracy", "Sensitivity", "Specificity", "F1", "Threshold"]
 DOMAINS = ["fastmri_metrics", "breastdm_metrics"]
 
