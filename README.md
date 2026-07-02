@@ -90,7 +90,7 @@ flowchart LR
 │   ├── r(2+1)d18/
 │   ├── mc3_18/
 │   └── swin_unetr/
-├── fusion/
+├── late fusion/
 ├── hyperparameter_search/
 ├── training/
 ├── evaluation/
