@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-train_tda.py
-
 TDA-only pipeline for Breast MRI.
 
 This script can:
