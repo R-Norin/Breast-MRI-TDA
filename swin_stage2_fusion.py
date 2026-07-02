@@ -7,10 +7,10 @@ Evaluates on FastMRI and BreastDM test sets.
 
 Usage:
     python swin_stage2_fusion.py --seed 42
-    python swin_stage2_fusion.py --seed 22
+    python swin_stage2_fusion.py --seed 32
     ...
 
-Seeds: 22 | 32 | 42 | 52 | 62
+Seeds: 32 | 42 | 52 | 62
 """
 
 import sys
@@ -40,8 +40,8 @@ from utils       import (
 # ============================================================
 # PATHS  —  update to match your cluster
 # ============================================================
-DATA_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/dg_dataset")
-TDA_ROOT  = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG")
+DATA_ROOT = Path("breast_mri/domain_generalization/DG/dg_dataset")
+TDA_ROOT  = Path("breast_mri/domain_generalization/DG")
 
 TRAIN_IMG_ROOT    = DATA_ROOT / "train"
 VAL_IMG_ROOT      = DATA_ROOT / "val"
@@ -53,10 +53,10 @@ VAL_TDA_CSV      = TDA_ROOT / "dg_betti_val_2_class.csv"
 FASTMRI_TDA_CSV  = TDA_ROOT / "dg_betti_fastmri_test_2_class.csv"
 BREASTDM_TDA_CSV = TDA_ROOT / "dg_betti_breastdm_test_2_class.csv"
 
-PRETRAINED_WEIGHTS = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/pretrained_weights/swin_unetr_pretrained.pt")
+PRETRAINED_WEIGHTS = Path("breast_mri/domain_generalization/DG/pretrained_weights/swin_unetr_pretrained.pt")
 
-STAGE1_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage1")
-STAGE2_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage2")
+STAGE1_OUT = Path("breast_mri/domain_generalization/DG/results/stage1")
+STAGE2_OUT = Path("breast_mri/domain_generalization/DG/results/stage2")
 
 # ============================================================
 # FIXED SETTINGS
