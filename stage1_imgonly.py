@@ -9,7 +9,7 @@ Usage:
     python stage1_imgonly.py --model r2plus1d --combo_idx 0
 
 Models:   r3d18 | mc318 | r2plus1d
-Combos:   0 to 49 (50 random combinations sampled from 192 total)
+Combos:   0 to 49 (50 random combinations sampled from total)
 """
 
 import sys
@@ -36,12 +36,12 @@ from utils   import set_seed, train_one_epoch, predict
 # ============================================================
 # PATHS
 # ============================================================
-DATA_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/dg_dataset")
+DATA_ROOT = Path("breast_mri/dataset")
 
 TRAIN_IMG_ROOT = DATA_ROOT / "train"
 VAL_IMG_ROOT   = DATA_ROOT / "val"
 
-OUT_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage1")
+OUT_ROOT = Path("breast_mri/results/stage1")
 
 # ============================================================
 # FIXED SETTINGS
@@ -56,10 +56,10 @@ TDA_DIM      = 450
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ============================================================
-# SEARCH SPACE  →  192 total combinations
+# SEARCH SPACE  →  total combinations
 # ============================================================
 SEARCH_SPACE = {
-    "lr":           [1e-5, 5e-5, 1e-4, 5e-4],
+    "lr":           [1e-5, 5e-5, 1e-4, 5e-4, 1e-2, 1e-3],
     "weight_decay": [1e-4, 1e-3, 1e-2],
     "dropout":      [0.2, 0.3, 0.4, 0.5],
     "batch_size":   [4, 8, 16, 32],
