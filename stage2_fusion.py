@@ -7,11 +7,11 @@ Evaluates on FastMRI and BreastDM test sets.
 
 Usage:
     python stage2_fusion.py --model r3d18 --seed 42
-    python stage2_fusion.py --model mc318 --seed 22
+    python stage2_fusion.py --model mc318 --seed 52
     python stage2_fusion.py --model r2plus1d --seed 32
 
 Models:   r3d18 | mc318 | r2plus1d
-Seeds:    22 | 32 | 42 | 52 | 62
+Seeds:    32 | 42 | 52 | 62
 """
 
 import sys
@@ -42,8 +42,8 @@ from utils   import (
 # ============================================================
 # PATHS
 # ============================================================
-DATA_ROOT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/dg_dataset")
-TDA_ROOT  = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG")
+DATA_ROOT = Path("breast_mri/dataset")
+TDA_ROOT  = Path("breast_mri/tda")
 
 TRAIN_IMG_ROOT    = DATA_ROOT / "train"
 VAL_IMG_ROOT      = DATA_ROOT / "val"
@@ -55,8 +55,8 @@ VAL_TDA_CSV      = TDA_ROOT / "dg_betti_val_2_class.csv"
 FASTMRI_TDA_CSV  = TDA_ROOT / "dg_betti_fastmri_test_2_class.csv"
 BREASTDM_TDA_CSV = TDA_ROOT / "dg_betti_breastdm_test_2_class.csv"
 
-STAGE1_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage1")
-STAGE2_OUT = Path("/groups/bcoskunuzer/R_Norin/breast_mri_final/domain_generalization/DG/results/stage2")
+STAGE1_OUT = Path("breast_mri/results/stage1")
+STAGE2_OUT = Path("breast_mri/results/stage2")
 
 # ============================================================
 # FIXED SETTINGS
