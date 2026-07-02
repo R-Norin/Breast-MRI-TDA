@@ -222,5 +222,5 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, required=True, choices=["r3d18", "mc318", "r2plus1d"])
-    parser.add_argument("--seed",  type=int, required=True, choices=[22, 32, 42, 52, 62])
+    parser.add_argument("--seed",  type=int, required=True, choices=[32, 42, 52, 62])
     main(parser.parse_args())
