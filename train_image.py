@@ -86,7 +86,6 @@ def get_args():
     p.add_argument("--batch_sizes", default="4,8,16,32")
     p.add_argument("--learning_rates", default="1e-4,5e-5,1e-5")
     p.add_argument("--weight_decays", default="1e-4,1e-3,1e-2")
-    p.add_argument("--dropouts", default="0.3,0.4,0.5")
 
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--patience", type=int, default=7)
@@ -108,26 +107,24 @@ def get_device():
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def make_combinations(batch_sizes, learning_rates, weight_decays, dropouts):
+def make_combinations(batch_sizes, learning_rates, weight_decays):
     combos = []
     for bs, lr, wd, do in itertools.product(
         batch_sizes,
         learning_rates,
         weight_decays,
-        dropouts,
     ):
         combos.append(
             {
                 "batch_size": bs,
                 "learning_rate": lr,
                 "weight_decay": wd,
-                "dropout": do,
             }
         )
     return combos
 
 
-def build_model(model_name, dropout, swin_pretrained_weights):
+def build_model(model_name, swin_pretrained_weights):
     model_name = model_name.lower()
 
     if model_name == "swin_unetr":
@@ -135,12 +132,10 @@ def build_model(model_name, dropout, swin_pretrained_weights):
             raise ValueError("swin_unetr requires --swin_pretrained_weights")
         return SwinImageOnlyModel(
             pretrained_weights_path=swin_pretrained_weights,
-            dropout=dropout,
         )
 
     return ImageOnlyModel(
         model_name=model_name,
-        dropout=dropout,
     )
 
 
@@ -199,7 +194,6 @@ def run_one_seed(args, model_name, combo, seed, combo_idx):
         f"_bs{combo['batch_size']}"
         f"_lr{safe_name(combo['learning_rate'])}"
         f"_wd{safe_name(combo['weight_decay'])}"
-        f"_drop{safe_name(combo['dropout'])}"
     )
 
     run_dir = Path(args.output_dir) / run_name
@@ -233,7 +227,6 @@ def run_one_seed(args, model_name, combo, seed, combo_idx):
 
     model = build_model(
         model_name=model_name,
-        dropout=combo["dropout"],
         swin_pretrained_weights=args.swin_pretrained_weights,
     ).to(device)
 
@@ -351,7 +344,6 @@ def run_one_seed(args, model_name, combo, seed, combo_idx):
         "Batch Size": combo["batch_size"],
         "Learning Rate": combo["learning_rate"],
         "Weight Decay": combo["weight_decay"],
-        "Dropout": combo["dropout"],
         "Best Val AUC": best_val_auc,
         "Best Epoch": best_epoch,
         "Best Threshold F1": best_threshold,
@@ -393,7 +385,6 @@ def main():
         batch_sizes=parse_int_list(args.batch_sizes),
         learning_rates=parse_float_list(args.learning_rates),
         weight_decays=parse_float_list(args.weight_decays),
-        dropouts=parse_float_list(args.dropouts),
     )
 
     all_rows = []
@@ -434,7 +425,6 @@ def main():
         "Batch Size",
         "Learning Rate",
         "Weight Decay",
-        "Dropout",
     ]
 
     summary_rows = []
