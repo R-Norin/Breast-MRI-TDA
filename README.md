@@ -136,6 +136,16 @@ The experiments use breast MRI datasets collected from multiple institutions.
 - [ODELIA](https://huggingface.co/datasets/ODELIA-AI/ODELIA-Challenge-2025/tree/main/example-algorithm)
 - [BreastDM](https://github.com/smallboy-code/Breast-cancer-dataset)
 - [FastMRI Breast](https://fastmri.med.nyu.edu/)
+
+### Volume format (.npy)
+- Three synchronized MRI modalities are provided for each subject.
+- Volumes are stored as float32 after B-spline resampling and z-score normalization.
+- The three modalities are stacked to form a tensor of shape (C, D, H, W).
+
+### Topological features (.csv)
+- Numeric matrix of shape (N, D), D should be a multiple of 150 (50 each for connected components, holes, voids)
+- Obvious ID/label columns are auto-dropped if present (e.g., id, label, Modality…)
+Non-numeric values raise a clear error
 ---
 
 ## Training
