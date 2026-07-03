@@ -38,70 +38,16 @@ The repository includes:
 
 --->
 
-## Pipeline
+## Framework
 
-```mermaid
-flowchart LR
-    A[3D Breast MRI] --> B[Preprocessing]
-    B --> C1[Pre-contrast MRI]
-    B --> C2[Post-contrast MRI]
-    B --> C3[Subtraction MRI]
+<p align="center">
+  <img src="pipeline.png" width="1000">
+</p>
 
-    C1 --> D1[3D Image]
-    C2 --> D1
-    C3 --> D1
+<p align="center">
+<b>Figure 1.</b> Overview of the proposed TDA-enhanced deep learning framework for breast MRI classification.
+</p>
 
-    C1 --> D2[TDA Persistent Homology]
-    C2 --> D2
-    C3 --> D2
-
-    D1 --> E1[3D CNN / Swin UNETR Feature Extraction]
-    D2 --> E2[Betti Vector Features]
-
-    E1 --> F[Feature Fusion]
-    E2 --> F
-
-    F --> G[Benign / Malignant Classification]
-    
-    G --> I[Evaluation]
-    I --> J[AUC, Accuracy, F1, Sensitivity, Specificity]
-```
-
-<!--
-## Features
-
-- 3D Breast MRI classification
-- Persistent homology using Cubical Complexes
-- Betti Vector feature extraction
-- Late fusion of image and topology features
-- Domain Generalization
-- Hyperparameter search
-
-
-
-
-## Repository Structure
-
-```text
-.
-├── datasets/
-├── preprocessing/
-├── tda/
-├── models/
-│   ├── r3d18/
-│   ├── r(2+1)d18/
-│   ├── mc3_18/
-│   └── swin_unetr/
-├── late fusion/
-├── hyperparameter_search/
-├── training/
-├── evaluation/
-├── utils/
-└── README.md
-```
-
----
---->
 
 ## Installation
 <!--
@@ -136,17 +82,6 @@ The experiments use breast MRI datasets collected from multiple institutions.
 - [ODELIA](https://huggingface.co/datasets/ODELIA-AI/ODELIA-Challenge-2025/tree/main/example-algorithm)
 - [BreastDM](https://github.com/smallboy-code/Breast-cancer-dataset)
 - [FastMRI Breast](https://fastmri.med.nyu.edu/)
-
-### Volume format (.npy)
-- Three synchronized MRI modalities are provided for each subject.
-- Volumes are stored as float32 after B-spline resampling and z-score normalization.
-- The three modalities are stacked to form a tensor of shape (D, H, W).
-
-### Topological features (.csv)
-- Numeric matrix of shape (N, D), D should be a multiple of 150 (50 each for connected components, holes, voids)
-- Obvious ID/label columns are auto-dropped if present (e.g., id, label, Modality…)
-Non-numeric values raise a clear error
----
 
 ## Training
 
