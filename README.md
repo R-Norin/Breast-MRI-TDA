@@ -29,14 +29,6 @@ The repository includes:
 - TDA-only machine learning models
 - TDA + image late fusion models
 - Domain generalization experiments
-<!--
-- Training and evaluation scripts
-- Hyperparameter search
-- Preprocessing utilities
-- Threshold tuning using validation F1
-- Multi-seed evaluation
-
---->
 
 ## Framework
 
