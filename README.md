@@ -210,13 +210,7 @@ If you find this repository useful, please cite our paper.
 
 ## Acknowledgements
 
-This project makes use of several excellent open-source libraries, including
-
-- PyTorch
-- MONAI
-- Gudhi
-- Scikit-learn
-- XGBoost
+We would like to thank the dataset creators for their hard work in advancing open-source medical image analysis; the PyTorch and Torchvision contributors for the implementations of R3D-18, MC3-18, R(2+1)D-18; the MONAI developers for the implementation of SwinUNETR and the self-supervised pretrained SwinUNETR weights.
 
 ---
 <!--
