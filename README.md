@@ -5,7 +5,7 @@
 
 ### Topology Augmented Deep Learning for Breast MRI Classification
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)]()
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)]()
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red.svg)]()
 [![MONAI](https://img.shields.io/badge/MONAI-Latest-green.svg)]()
 <!--[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()--->
@@ -112,15 +112,15 @@ git clone https://github.com/yourname/Breast-MRI-TDA.git
 cd Breast-MRI-TDA
 ```
 --->
-### Create environment
-
+### 1. Create environment
+Conda (recommended):
 ```bash
-conda create -n breasttda python=3.8
+conda create -n breasttda python=3.10
 
 conda activate breasttda
 ```
 
-### Install dependencies
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
