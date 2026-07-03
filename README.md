@@ -110,7 +110,7 @@ git clone https://github.com/yourname/Breast-MRI-TDA.git
 cd Breast-MRI-TDA
 ```
 --->
-Create environment
+### Create environment
 
 ```bash
 conda create -n breasttda python=3.8
@@ -118,7 +118,7 @@ conda create -n breasttda python=3.8
 conda activate breasttda
 ```
 
-Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -130,15 +130,6 @@ pip install -r requirements.txt
 
 The experiments use breast MRI datasets collected from multiple institutions.
 
-Expected directory structure
-
-```text
-dataset/
-
-train/
-val/
-test/
-```
 
 Detailed preprocessing instructions will be released.
 
