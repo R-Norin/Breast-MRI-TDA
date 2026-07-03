@@ -29,7 +29,7 @@ The repository includes:
 - TDA-only machine learning models
 - TDA + image late fusion models
 - Domain generalization experiments
-  <!--
+<!--
 - Training and evaluation scripts
 - Hyperparameter search
 - Preprocessing utilities
@@ -66,6 +66,7 @@ flowchart LR
     G --> I[Evaluation]
     I --> J[AUC, Accuracy, F1, Sensitivity, Specificity]
 ```
+
 <!--
 ## Features
 
