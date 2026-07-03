@@ -29,13 +29,14 @@ The repository includes:
 - TDA-only machine learning models
 - TDA + image late fusion models
 - Domain generalization experiments
+  <!--
 - Training and evaluation scripts
 - Hyperparameter search
 - Preprocessing utilities
 - Threshold tuning using validation F1
 - Multi-seed evaluation
 
----
+--->
 
 ## Pipeline
 
@@ -76,7 +77,7 @@ flowchart LR
 - Hyperparameter search
 
 
---->
+
 
 ## Repository Structure
 
@@ -99,6 +100,7 @@ flowchart LR
 ```
 
 ---
+--->
 
 ## Installation
 <!--
@@ -129,9 +131,6 @@ pip install -r requirements.txt
 ## Datasets
 
 The experiments use breast MRI datasets collected from multiple institutions.
-
-
-Detailed preprocessing instructions will be released.
 
 ---
 
