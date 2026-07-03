@@ -18,7 +18,7 @@
 
 This repository contains the official implementation of our framework for breast MRI classification using **Topological Data Analysis (TDA)** and **3D deep learning**.
 
-Our approach combines topological descriptors extracted from persistent homology with volumetric MRI representations learned by 3D convolutional neural networks and transformer-based architectures through a late-fusion framework.
+Our approach combines topological descriptors extracted from persistent homology with volumetric MRI representations learned by 3D convolutional neural networks (R3D-18, MC3-18, and R(2+1)D-18) and SwinUNETR architectures through a late-fusion framework.
 
 The repository includes:
 
@@ -133,6 +133,9 @@ pip install -r requirements.txt
 
 The experiments use breast MRI datasets collected from multiple institutions.
 
+- [ODELIA](https://huggingface.co/datasets/ODELIA-AI/ODELIA-Challenge-2025/tree/main/example-algorithm)
+- [BreastDM](https://github.com/smallboy-code/Breast-cancer-dataset)
+- [FastMRI Breast](https://fastmri.med.nyu.edu/)
 ---
 
 ## Training
