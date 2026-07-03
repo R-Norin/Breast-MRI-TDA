@@ -140,7 +140,7 @@ The experiments use breast MRI datasets collected from multiple institutions.
 ### Volume format (.npy)
 - Three synchronized MRI modalities are provided for each subject.
 - Volumes are stored as float32 after B-spline resampling and z-score normalization.
-- The three modalities are stacked to form a tensor of shape (C, D, H, W).
+- The three modalities are stacked to form a tensor of shape (D, H, W).
 
 ### Topological features (.csv)
 - Numeric matrix of shape (N, D), D should be a multiple of 150 (50 each for connected components, holes, voids)
