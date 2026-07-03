@@ -115,9 +115,9 @@ cd Breast-MRI-TDA
 ### 1. Create environment
 Conda (recommended):
 ```bash
-conda create -n breasttda python=3.10
+conda create -n breast_tda python=3.10
 
-conda activate breasttda
+conda activate breast_tda
 ```
 
 ### 2. Install dependencies
@@ -136,21 +136,14 @@ The experiments use breast MRI datasets collected from multiple institutions.
 
 ## Training
 
-### Image-only model
-
 ```bash
+# 3D CNN Image only model
 python train_image.py
-```
 
-### TDA model
-
-```bash
+# TDA model
 python train_tda.py
-```
 
-### Fusion model
-
-```bash
+# TDA + 3D-CNN Late Fusion model
 python train_fusion.py
 ```
 
@@ -158,21 +151,18 @@ python train_fusion.py
 
 ## Domain Generalization
 
-The repository supports training on one dataset and evaluating on external datasets.
+The repository supports training on one dataset and evaluating on external datasets. For domain generalization we train the model with **Odelia** and do external tests on **FastMRI Breast** and **BreastDM** without any target domain fine tuning.
+  
+```bash
+# Test 1 : Odelia --> FastMRI
+python domain_generalization_fastmri.py
 
-Example
-
-```text
-Train:
-    ODELIA
-
-External Test:
-    FastMRI
-    BreastDM
+# Test 1 : Odelia --> BreastDM
+python domain_generalization_breastdm.py
 ```
 
 ---
-
+<!--
 ## Hyperparameter Search
 
 Supported search options include
@@ -202,7 +192,7 @@ Example evaluation metrics
 | Fusion | -- | -- | -- | -- |
 
 ---
-<!--
+
 ## Citation
 
 If you find this repository useful, please cite our paper.
